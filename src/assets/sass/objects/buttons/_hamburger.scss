@@ -1,0 +1,83 @@
+.btn-hamburger {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  width: $icon-large;
+  height: 20px;
+  border: 4px solid $dark-smoke;
+  border-right: 0;
+  border-left: 0;
+  cursor: pointer;
+  background: transparent;
+  @include margin(2);
+
+
+  &::before,
+  &::after {
+    position: absolute;
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: $dark-smoke;
+    border: 0;
+    transition: transform 0.15s ease-in-out, width 0.15s ease-in-out;
+    content: "";
+  }
+  &::before {
+    top: 0;
+    transform: translate(-6px, 10px);
+  }
+  &::after {
+    top: 0;
+    transform: translate(-6px, 12px);
+  }
+
+  &.his-open {
+    border-color: transparent;
+
+    &::before,
+    &::after {
+      border-color: $red-dark;
+    }
+    &::before {
+      transform: translateY(10px) rotate(45deg);
+    }
+    &::after {
+      transform: translateY(-10px) rotate(-45deg);
+    }
+  }
+
+  &.disabled,
+  &:disabled {
+    border-color: $snow;
+    cursor: not-allowed;
+  }
+
+  &.to-right:hover {
+    border-color: $dark-smoke;
+    border-width: 0;
+
+    &::before {
+      width: 200%;
+      transform: translateY(-2px) rotate(45deg);
+    }
+    &::after {
+      width: 200%;
+      transform: translateY(2px) rotate(-45deg);
+    }
+  }
+
+  &.to-left:hover {
+    border-color: $dark-smoke;
+    border-width: 0;
+
+    &::before {
+      width: 200%;
+      transform: translateY(-2px) rotate(-45deg);
+    }
+    &::after {
+      width: 200%;
+      transform: translateY(2px) rotate(45deg);
+    }
+  }
+}

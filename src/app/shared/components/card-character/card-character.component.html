@@ -1,0 +1,14 @@
+<div class="card">
+  <div class="card-body">
+    <span class="card-icon" [class.favorite]="favorite"
+      (click)="toogleFav(12324)">
+      <fa-icon [icon]="favorite? faHeartSolid : faHeartRegular"></fa-icon>
+    </span>
+    image
+  </div>
+
+  <div class="card-footer">
+    <h3 class="card-name">Rick Sanchez</h3>
+    <h4 class="card-type">Human</h4>
+  </div>
+</div>

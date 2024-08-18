@@ -1,0 +1,15 @@
+<header class="header">
+  <img src="/assets/img/rick-and-morty-logo-tiny.png" alt="rick and morty logo"
+    width="114px" height="64px">
+
+  <nav class="btn-group">
+    <a [routerLink]="['/principal']" class="btn btn-icon">
+      <fa-icon [icon]="faHouse"></fa-icon>
+      Início
+    </a>
+    <a [routerLink]="['/favoritos']" class="btn is-black">
+      <fa-icon [icon]="faHeart"></fa-icon>
+      Favoritos
+    </a>
+  </nav>
+</header>

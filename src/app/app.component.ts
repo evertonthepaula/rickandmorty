@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
-
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  template: '<app-main-content><router-outlet></router-outlet></app-main-content>'
 })
-export class AppComponent {
-  title = 'rick-and-morty';
-}
+export class AppComponent { }
+

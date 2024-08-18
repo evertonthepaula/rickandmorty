@@ -1,0 +1,18 @@
+<header class="header">
+  <h1>Início</h1>
+
+  <div>
+    <label for>Pesquisar</label>
+    <input type="text">
+  </div>
+</header>
+
+<app-empty-content
+  title="Nada foi encontrado"
+  subtitle="Tente realizar uma nova busca."></app-empty-content>
+
+<section>
+  <app-card-character [favorite]="true"
+    (toggleFvorite)="changeFav($event)"></app-card-character>
+  <app-card-character (toggleFvorite)="changeFav($event)"></app-card-character>
+</section>
