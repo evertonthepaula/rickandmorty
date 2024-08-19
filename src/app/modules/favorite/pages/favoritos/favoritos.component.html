@@ -1,8 +1,18 @@
 <h1>Favoritos</h1>
 
-<app-empty-content
-  title="Parece que você ainda não tem favoritos"
-  subtitle="Volte à página inicial e escolha os melhores para você.">
+<ng-container *ngIf="characters$ | async as characters">
+  <section *ngIf="characters.length;else empty" class="grid-gap">
+    <ng-container *ngFor="let character of characters">
+      <app-card-character [character]="character"></app-card-character>
+    </ng-container>
+  </section>
+</ng-container>
 
-  <button class="btn">Voltar ao início</button>
-</app-empty-content>
+<ng-template #empty>
+  <app-empty-content
+    title="Parece que você ainda não tem favoritos"
+    subtitle="Volte à página inicial e escolha os melhores para você.">
+
+    <button class="btn">Voltar ao início</button>
+  </app-empty-content>
+</ng-template>

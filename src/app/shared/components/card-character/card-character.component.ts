@@ -14,8 +14,6 @@ export class CardCharacterComponent {
   faHeartSolid: IconProp = faHeartSolid;
   faHeartRegular: IconProp = faHeartRegular;
 
-  @Input() favorite: boolean = false;
-
   @Input() character!: CharacterBasics;
 
   @Output() toggleFvorite = new EventEmitter<CharacterBasics>();
@@ -23,6 +21,7 @@ export class CardCharacterComponent {
   constructor() { }
 
   toogleFav(character: CharacterBasics): void {
+    this.character = { ...this.character, favorite: !this.character.favorite };
     this.toggleFvorite.emit(character);
   }
 

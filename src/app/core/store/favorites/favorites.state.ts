@@ -31,6 +31,6 @@ export class FavoritesState {
   @Action(ToogleFavorite)
   toogleFavorite({ getState, setState }: StateContext<FavoritesStateModel>, { payload }: ToogleFavorite) {
     const oldSate = getState().characters;
-    setState({ characters: [payload, ...oldSate] });
+    setState({ characters: [{ ...payload, favorite: true }, ...oldSate] });
   }
 }

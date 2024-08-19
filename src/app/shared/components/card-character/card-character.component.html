@@ -2,9 +2,10 @@
   <div class="card-body"
     [ngStyle]="{'background-image':'url('+character.image+')'}">
 
-    <span class="card-icon" [class.favorite]="favorite"
+    <span class="card-icon" [class.favorite]="character.favorite"
       (click)="toogleFav(character)">
-      <fa-icon [icon]="favorite? faHeartSolid : faHeartRegular"></fa-icon>
+      <fa-icon
+        [icon]="character.favorite? faHeartSolid : faHeartRegular"></fa-icon>
     </span>
   </div>
 

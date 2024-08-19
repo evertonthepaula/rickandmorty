@@ -4,4 +4,5 @@ export interface CharacterBasics {
   species: string;
   type: string;
   image: string;
+  favorite?: boolean;
 }
