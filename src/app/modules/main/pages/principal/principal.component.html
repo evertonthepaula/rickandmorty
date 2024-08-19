@@ -7,12 +7,9 @@
   </div>
 </header>
 
-<app-empty-content
-  title="Nada foi encontrado"
-  subtitle="Tente realizar uma nova busca."></app-empty-content>
-
-<section>
-  <app-card-character [favorite]="true"
-    (toggleFvorite)="changeFav($event)"></app-card-character>
-  <app-card-character (toggleFvorite)="changeFav($event)"></app-card-character>
+<section class="grid-gap">
+  <ng-container *ngFor="let character of characters">
+    <app-card-character [character]="character" [favorite]="false"
+      (toggleFvorite)="changeFav($event)"></app-card-character>
+  </ng-container>
 </section>

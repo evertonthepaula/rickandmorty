@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  rickandmortyapi: 'https://rickandmortyapi.com/'
+  rickandmortyapi: 'https://rickandmortyapi.com/api'
 };
 
 /*

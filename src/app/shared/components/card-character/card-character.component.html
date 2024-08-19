@@ -1,14 +1,16 @@
 <div class="card">
-  <div class="card-body">
+  <div class="card-body"
+    [ngStyle]="{'background-image':'url('+character.image+')'}">
+
     <span class="card-icon" [class.favorite]="favorite"
-      (click)="toogleFav(12324)">
+      (click)="toogleFav(character.id)">
       <fa-icon [icon]="favorite? faHeartSolid : faHeartRegular"></fa-icon>
     </span>
-    image
   </div>
 
   <div class="card-footer">
-    <h3 class="card-name">Rick Sanchez</h3>
-    <h4 class="card-type">Human</h4>
+    <h3 class="card-name">{{character.name}}</h3>
+    <h4 class="card-type">{{character.species}}</h4>
+    <h4 *ngIf="character.type" class="card-type">{{character.type}}</h4>
   </div>
 </div>
