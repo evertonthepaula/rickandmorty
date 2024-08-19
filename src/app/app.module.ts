@@ -8,6 +8,7 @@ import { PagesModule } from './shared/pages/pages.module';
 import { ComponentsModule } from './shared/components/components.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxsStateModule } from './core/store/ngxs.state.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     TemplatesModule,
     PagesModule,
     ComponentsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    NgxsStateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

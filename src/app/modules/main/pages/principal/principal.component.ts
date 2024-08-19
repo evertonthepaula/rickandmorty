@@ -3,6 +3,8 @@ import { CharacterHttpService } from '../../../../core/services/http/character/c
 import { CharacterDataService } from '../../../../core/services/data/character/character-data.service';
 import { map } from 'rxjs';
 import { CharacterBasics } from '../../../../core/interfaces/character.interface';
+import { Store } from '@ngxs/store';
+import { ToogleFavorite } from '../../../../core/store/favorites/favorites.actions';
 
 @Component({
   selector: 'app-principal',
@@ -15,6 +17,7 @@ export class PrincipalComponent implements OnInit {
   page: number = 1;
 
   constructor(
+    private readonly store: Store,
     private readonly characterHttpService: CharacterHttpService,
     private readonly characterDataService: CharacterDataService
   ) { }
@@ -26,7 +29,9 @@ export class PrincipalComponent implements OnInit {
       .subscribe((result) => this.characters = result);
   }
 
-  changeFav(id: number) {
-    console.log('changeFav ::: ', id);
+  changeFav(character: CharacterBasics) {
+    console.log('changeFav ::: ', character);
+
+    this.store.dispatch(new ToogleFavorite(character))
   }
 }

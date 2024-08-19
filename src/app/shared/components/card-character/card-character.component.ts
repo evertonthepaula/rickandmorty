@@ -18,12 +18,12 @@ export class CardCharacterComponent {
 
   @Input() character!: CharacterBasics;
 
-  @Output() toggleFvorite = new EventEmitter<number>();
+  @Output() toggleFvorite = new EventEmitter<CharacterBasics>();
 
   constructor() { }
 
-  toogleFav(id: number): void {
-    this.toggleFvorite.emit(id);
+  toogleFav(character: CharacterBasics): void {
+    this.toggleFvorite.emit(character);
   }
 
 }
