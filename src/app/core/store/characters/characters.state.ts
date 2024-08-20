@@ -1,7 +1,7 @@
 import { Action, Selector, State, StateContext, Store } from '@ngxs/store';
 
 // ACTIONS
-import { AddCharactersList } from './characters.actions';
+import { AddCharactersList, ClearCharactersList } from './characters.actions';
 
 // SERVICES
 
@@ -29,7 +29,7 @@ export class CharactersState {
   }
 
   @Action(AddCharactersList)
-  AddCharactersList({ getState, setState }: StateContext<CharacterStateModel>, { payload }: AddCharactersList) {
+  addCharactersList({ getState, setState }: StateContext<CharacterStateModel>, { payload }: AddCharactersList) {
     const favoritesIds = this.store.selectSnapshot(FavoritesState.favoritesIds);
     const oldSate = getState().characters;
 
@@ -39,5 +39,11 @@ export class CharactersState {
 
     const newCharacters: CharacterBasics[] = payload.map((character) => ({ ...character, favorite: favoritesIds.includes(character.id) }));
     setState({ characters: [...newCharacters, ...oldSate] });
+  }
+
+
+  @Action(ClearCharactersList)
+  clearCharactersList({ setState }: StateContext<CharacterStateModel>) {
+    setState({ characters: [] });
   }
 }

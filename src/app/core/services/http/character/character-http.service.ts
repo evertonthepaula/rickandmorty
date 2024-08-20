@@ -17,21 +17,9 @@ export class CharacterHttpService {
    * Gets a list of Characters
    *
    * @param page - The current page to show
+   * @param name - The characters name - optional
    */
-  get(page: number): Observable<CharacterResponseInterface> {
-    return this.http.get<CharacterResponseInterface>(`${environment.rickandmortyapi}/character/?page=${page}`);
+  get(page: number, name: string = ''): Observable<CharacterResponseInterface> {
+    return this.http.get<CharacterResponseInterface>(`${environment.rickandmortyapi}/character/?page=${page}&name=${name}`);
   }
-
-  /**
-     * Search Character by name
-     *
-     * @param name - The characters name
-     */
-  filter(name: string): Observable<CharacterResponseInterface> {
-    return this.http.get<CharacterResponseInterface>(`${environment.rickandmortyapi}/character/?name=${name}`);
-  }
-
-
-
-
 }
