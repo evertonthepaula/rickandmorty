@@ -8,6 +8,7 @@ import { ToogleFavorite } from './favorites.actions';
 // MODELS
 import { FavoritesStateModel } from './favorites.state.model';
 import { CharacterBasics } from '../../interfaces/character.interface';
+import { Injectable } from '@angular/core';
 
 @State({
   name: 'favorites',
@@ -15,6 +16,7 @@ import { CharacterBasics } from '../../interfaces/character.interface';
     characters: [],
   }
 })
+@Injectable()
 export class FavoritesState {
   constructor() { }
 
@@ -26,6 +28,11 @@ export class FavoritesState {
   @Selector()
   static totalFavorites(state: FavoritesStateModel): number {
     return state.characters.length;
+  }
+
+  @Selector()
+  static favoritesIds(state: FavoritesStateModel): number[] {
+    return state.characters.map(fav => fav.id);
   }
 
   @Action(ToogleFavorite)

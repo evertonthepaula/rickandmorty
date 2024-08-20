@@ -1,4 +1,4 @@
-import { Action, Selector, State, StateContext } from '@ngxs/store';
+import { Action, Selector, State, StateContext, Store } from '@ngxs/store';
 
 // ACTIONS
 import { AddCharactersList } from './characters.actions';
@@ -8,7 +8,10 @@ import { AddCharactersList } from './characters.actions';
 // MODELS
 import { CharacterStateModel } from './characters.state.model';
 import { CharacterBasics } from '../../interfaces/character.interface';
+import { Injectable } from '@angular/core';
 
+// STATE
+import { FavoritesState } from '../favorites/favorites.state';
 
 @State({
   name: 'characters',
@@ -16,8 +19,9 @@ import { CharacterBasics } from '../../interfaces/character.interface';
     characters: [],
   }
 })
+@Injectable()
 export class CharactersState {
-  constructor() { }
+  constructor(private store: Store) { }
 
   @Selector()
   static characters(state: CharacterStateModel): CharacterBasics[] {
@@ -26,7 +30,14 @@ export class CharactersState {
 
   @Action(AddCharactersList)
   AddCharactersList({ getState, setState }: StateContext<CharacterStateModel>, { payload }: AddCharactersList) {
+    const favoritesIds = this.store.selectSnapshot(FavoritesState.favoritesIds);
     const oldSate = getState().characters;
-    setState({ characters: [...payload, ...oldSate] });
+
+    if (!favoritesIds.length) {
+      setState({ characters: [...payload, ...oldSate] });
+    }
+
+    const newCharacters: CharacterBasics[] = payload.map((character) => ({ ...character, favorite: favoritesIds.includes(character.id) }));
+    setState({ characters: [...newCharacters, ...oldSate] });
   }
 }

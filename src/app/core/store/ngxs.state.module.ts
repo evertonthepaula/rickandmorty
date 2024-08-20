@@ -16,7 +16,7 @@ import { CharactersState } from './characters/characters.state';
       CharactersState
     ], { developmentMode: !environment.production }),
     NgxsStoragePluginModule.forRoot({
-      key: []
+      key: ['favorites']
     }),
   ],
   exports: [NgxsModule, NgxsStoragePluginModule]
