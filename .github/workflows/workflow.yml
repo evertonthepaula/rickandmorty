@@ -24,7 +24,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist/rick-and-morty
-          base_href: https://evertonthepaula.github.io/rickandmorty/
 
 permissions:
   contents: write
