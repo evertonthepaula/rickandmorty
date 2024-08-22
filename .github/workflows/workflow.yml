@@ -3,7 +3,7 @@ name: Continuos Integration
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   continuos-integration:
@@ -20,7 +20,11 @@ jobs:
           npm install
           npm run build
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist/rick-and-morty
+          base_href: /rick-and-morty/
+
+permissions:
+  contents: write
