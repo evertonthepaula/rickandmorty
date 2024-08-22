@@ -23,6 +23,8 @@
 
 ### CSS e SASS
 
+Eu escolhi fazer todo css na mão, ao invés de usar: Bootstra, PrimeNg, Angular Material, etc.
+
 Projeto segue as orientações do modelo ITCSS para a organização dos diretórios CSS. Para os padrões de nomenclatura, convencionou-se usar uma mistura de BEEM e SUITCSS. Usamos o conceito do BEM: Bloco, Elemento, Modificador, com a convenção de nomes de descendentes, e também para modificadores de estado do SUITCSS.
 
 Para facilitar este processo e agilizar o desenvolvimento, usei como base o meu projeto [CODA.css](https://github.com/evertonthepaula/coda-css).
