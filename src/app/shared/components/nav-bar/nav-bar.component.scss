@@ -13,18 +13,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 20px;
-  height: 20px;
+  min-width: 22px;
+  height: 22px;
   padding: 0 4px;
   background-color: var(--color-white);
   border: 1px solid var(--color-smoke);
   border-radius: 50%;
   color: var(--color-black);
-  font-size: 12px;
   font-weight: 700
 }
 
-fa-icon,
+fa-icon {
+  margin-right: 12px;
+}
+
 .total {
-  margin: 0 4px;
+  margin-left: 6px;
 }
