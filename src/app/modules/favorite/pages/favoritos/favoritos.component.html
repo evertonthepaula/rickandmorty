@@ -1,18 +1,19 @@
-<h1>Favoritos</h1>
+<h1>{{ 'words.favorites' | translate }}</h1>
 
 <ng-container *ngIf="characters$ | async as characters">
   <section *ngIf="characters.length;else empty" class="grid-gap">
     <ng-container *ngFor="let character of characters">
-      <app-card-character [character]="character"></app-card-character>
+      <app-card-character [character]="character"
+        (toggleFvorite)="changeFav($event)"></app-card-character>
     </ng-container>
   </section>
 </ng-container>
 
 <ng-template #empty>
   <app-empty-content
-    title="Parece que você ainda não tem favoritos"
-    subtitle="Volte à página inicial e escolha os melhores para você.">
+    [title]=" 'sentences.empty-favorites.title' | translate"
+    [subtitle]="'sentences.empty-favorites.title' | translate">
 
-    <button class="btn">Voltar ao início</button>
+    <button class="btn">{{ 'sentences.back-to-beginning' | translate }}</button>
   </app-empty-content>
 </ng-template>

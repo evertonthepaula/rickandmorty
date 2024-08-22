@@ -3,6 +3,7 @@ import { FavoritesState } from '../../../../core/store/favorites/favorites.state
 import { Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { CharacterBasics } from '../../../../core/interfaces/character.interface';
+import { ToogleFavorite } from '../../../../core/store/favorites/favorites.actions';
 
 @Component({
   selector: 'app-favoritos',
@@ -19,6 +20,10 @@ export class FavoritosComponent implements OnInit {
     this.characters$.subscribe((teste) => {
       console.log(teste);
     })
+  }
+
+  changeFav(character: CharacterBasics): void {
+    this.store.dispatch(new ToogleFavorite(character))
   }
 
 }

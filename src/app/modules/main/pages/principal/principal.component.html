@@ -1,9 +1,9 @@
 <header class="header">
-  <h1>Início</h1>
+  <h1>{{ 'words.beginning' | translate }}</h1>
 
   <div>
-    <label for>Pesquisar</label>
-    <input type="text" [formControl]="formControlSearch">
+    <label for> {{ 'words.search' | translate }}</label>
+    <input type="search" [formControl]="formControlSearch">
   </div>
 </header>
 
@@ -11,14 +11,20 @@
   <section *ngIf="characters.length;else empty" class="grid-gap">
     <ng-container *ngFor="let character of characters">
       <app-card-character [character]="character"
-        (toggleFvorite)="changeFav($event)"></app-card-character>
+        (toggleFvorite)="changeFav($event)" #characterList></app-card-character>
     </ng-container>
   </section>
 </ng-container>
 
+<div *ngIf="isLoading" class="dots">
+  {{ 'words.loading' | translate }}
+  <app-loader-dots></app-loader-dots>
+</div>
+
 <ng-template #empty>
   <app-empty-content
-    title="Nada foi encontrado"
-    subtitle="Tente realizar uma nova busca.">
+    *ngIf="!isLoading"
+    [title]=" 'sentences.empty.title' | translate"
+    [subtitle]="'sentences.empty.title' | translate">
   </app-empty-content>
 </ng-template>
