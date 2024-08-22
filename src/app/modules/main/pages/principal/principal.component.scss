@@ -9,3 +9,12 @@
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 24px;
 }
+
+.dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  color: var(--color-brand);
+  font-size: 3rem;
+}

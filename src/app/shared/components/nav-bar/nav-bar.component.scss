@@ -15,10 +15,16 @@
   align-items: center;
   width: 20px;
   height: 20px;
+  padding: 0 4px;
   background-color: var(--color-white);
   border: 1px solid var(--color-smoke);
   border-radius: 50%;
   color: var(--color-black);
   font-size: 12px;
   font-weight: 700
+}
+
+fa-icon,
+.total {
+  margin: 0 4px;
 }

@@ -5,6 +5,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CardCharacterComponent } from './card-character/card-character.component';
+import { LoadersComponentsModule } from './loaders/loaders.module';
 
 
 @NgModule({
@@ -16,12 +17,14 @@ import { CardCharacterComponent } from './card-character/card-character.componen
   imports: [
     CommonModule,
     RouterModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    LoadersComponentsModule
   ],
   exports: [
     CardCharacterComponent,
     NavBarComponent,
-    EmptyContentComponent
+    EmptyContentComponent,
+    LoadersComponentsModule
   ]
 })
 export class ComponentsModule { }
