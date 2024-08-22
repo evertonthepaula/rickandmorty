@@ -1,12 +1,12 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EmptyContentComponent } from './empty-content/empty-content.component';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { TranslateModule } from '@ngx-translate/core';
 import { CardCharacterComponent } from './card-character/card-character.component';
+import { EmptyContentComponent } from './empty-content/empty-content.component';
 import { LoadersComponentsModule } from './loaders/loaders.module';
-
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +15,7 @@ import { LoadersComponentsModule } from './loaders/loaders.module';
     EmptyContentComponent
   ],
   imports: [
+    TranslateModule,
     CommonModule,
     RouterModule,
     FontAwesomeModule,

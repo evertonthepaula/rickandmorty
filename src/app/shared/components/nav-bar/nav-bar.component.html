@@ -2,18 +2,38 @@
   <img src="/assets/img/rick-and-morty-logo-tiny.png" alt="rick and morty logo"
     width="114px" height="64px">
 
-  <nav class="btn-group">
-    <a [routerLink]="['/principal']" class="btn btn-icon">
-      <fa-icon [icon]="faHouse"></fa-icon>
-      Início
-    </a>
-    <a [routerLink]="['/favoritos']" class="btn is-black">
-      <fa-icon [icon]="faHeart"></fa-icon>
-      Favoritos
+  <div class="btn-group">
+    <button class="btn" [class.is-black]="currentLanguage == 'en'"
+      (click)="changeLanguage('pt')">
+      pt-br
+    </button>
+    <button class="btn" [class.is-black]="currentLanguage == 'pt'"
+      (click)="changeLanguage('en')">
+      en-us
+    </button>
+  </div>
 
-      <span class="total">
-        {{total}}
-      </span>
-    </a>
+  <nav>
+    <div class="btn-group">
+      <a class="btn" [class.is-black]="currentPage == '/favoritos'"
+        [routerLink]="['/principal']">
+
+        <fa-icon [icon]="faHouse"></fa-icon>
+
+        {{ 'words.beginning' | translate }}
+      </a>
+
+      <a class="btn" [class.is-black]="currentPage == '/principal'"
+        [routerLink]="['/favoritos']">
+
+        <fa-icon [icon]="faHeart"></fa-icon>
+
+        {{ 'words.favorites' | translate }}
+
+        <span class="total">
+          {{total}}
+        </span>
+      </a>
+    </div>
   </nav>
 </header>
