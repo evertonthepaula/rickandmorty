@@ -34,11 +34,11 @@ export class CharactersState {
     const oldSate = getState().characters;
 
     if (!favoritesIds.length) {
-      setState({ characters: [...payload, ...oldSate] });
+      setState({ characters: [...oldSate, ...payload] });
     }
 
     const newCharacters: CharacterBasics[] = payload.map((character) => ({ ...character, favorite: favoritesIds.includes(character.id) }));
-    setState({ characters: [...newCharacters, ...oldSate] });
+    setState({ characters: [...oldSate, ...newCharacters] });
   }
 
 
