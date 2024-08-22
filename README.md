@@ -1,3 +1,7 @@
+## Projeto Publicado
+
+[https://evertonthepaula.github.io/rickandmorty](https://evertonthepaula.github.io/rickandmorty)
+
 ## Ambiente de desenvolvimento
 
 - Angular: 13.3.0
