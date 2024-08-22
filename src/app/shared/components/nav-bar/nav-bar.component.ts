@@ -4,7 +4,7 @@ import { faHouse, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { Store } from '@ngxs/store';
 import { FavoritesState } from '../../../core/store/favorites/favorites.state';
 import { TranslateService } from '@ngx-translate/core';
-import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
 
 type langTpes = 'pt' | 'en';
@@ -23,20 +23,24 @@ export class NavBarComponent implements OnInit {
 
   constructor(
     private readonly translate: TranslateService,
-    private router: Router,
+    private readonly router: Router,
     private readonly store: Store,
   ) { }
 
   ngOnInit(): void {
-    this.router.events.pipe(
-      filter((event) => event instanceof NavigationEnd)
-    ).subscribe(() => {
-      console.log(this.router.url)
-      this.currentPage = this.router.url;
-    });
+    this.currentRouter();
+    this.qtdFavorites();
+  }
 
+  private currentRouter(): void {
+    this.router.events
+      .pipe(
+        filter((event) => event instanceof NavigationEnd)
+      )
+      .subscribe(() => this.currentPage = this.router.url);
+  }
 
-
+  private qtdFavorites(): void {
     this.store
       .select(FavoritesState.totalFavorites)
       .subscribe(length => this.total = length);
