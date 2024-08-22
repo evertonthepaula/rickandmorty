@@ -1,27 +1,40 @@
-# RickAndMorty
+## Ambiente de desenvolvimento
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.11.
+- Angular: 13.3.0
+- Node: v16.20.2
+- NPM: 8.19.4
 
-## Development server
+### Rodando o projeto
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. instale o projeto usando o comanto ``npm i``
+2. Rode o projeto: ``npm start``
 
-## Code scaffolding
+## Arquitetura e Design
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### CSS
 
-## Build
+Projeto segue as orientações do modelo ITCSS para a organização dos diretórios CSS. Para os padrões de nomenclatura, convencionou-se usar uma mistura de BEEM e SUITCSS. Usamos o conceito do BEM: Bloco, Elemento, Modificador, com a convenção de nomes de descendentes, e também para modificadores de estado do SUITCSS.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Para facilitar este processo e agilizar o desenvolvimento, usei como base o meu projeto [CODA.css](https://github.com/evertonthepaula/coda-css).
 
-## Running unit tests
+Obs.: Este não pôde ser instalado via NPM, pois está desatualizado, "sad but true".
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### ANGULAR - DIRETÓRIOS E COMPONENTES - BASE TEÓRICA
 
-## Running end-to-end tests
+Objetivo é criar uma arquiterua de diretórios clean.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Eu costumo usar uma solução para os diretórios Angular que, eu acredito, deixa o compartilhamento dos recursos na aplicação mais claros. Crio um padrão de diretórios globais, que é replicado dentros dos módulos. O interessante deste modelo, é que ele foi criado nas versões do Angular anteriores aos "Stand Alone Components", mas se adaptou perfeitamente a este modelo.
 
-## Further help
+Para manter a coesão de design, o sistema de organizção dos componentes, se baseia(mas não segue a risca completamente) o Atomic Design, desta forma, os componentes conseguem se comunicar com a arquitetura CSS sem grandes conflitos e a manipulação dos elementos fica mais fluída.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Esta organização pode ser melhor explicada nesta minha publicação no Medium: [Meu modelo atual para organizar a estrutura de diretórios usando Angular](https://evertonthepaula.medium.com/meu-modelo-atual-de-estrutura-de-diret%C3%B3rios-usando-angular-3e7538360d16)
+
+#### ESTRUTURA DE DIRETÓRIOS E COMPONENTES
+
+**/SHARED:** Cada recurso pode ser importado separadamente isso quer dizer que não necessáriamente a aplicação compartilha tudo que está em Shared o tempo todo, mas sim os modulos internos neste diretório, isso quer dizer que não existe um "shared.module" que carrega todos os recursos, portanto cada recurso tem seu proprio modulo. Teoricamente, deve funcionar de forma independente, podendo ser compartilhada com outros projetos, apenas respeitando as configurações globais e biblitoecas que precisa para funcionar.
+
+**/Core:** Recursos altamente acomplados a solução de dominio da aplicação. Estando diretamente relacionados a função da aplicação, não faz sentido exportar em outro projeto que não esteja no mesmo dominio. Apesar de compartilhado como a Shared em modulos, geralmente o carregamento ocorre somente no "app.module", não sendo necessário injetar em modulos internos.
+
+**/Modules:** São os modulos angular que separam as rotas da aplicação com: "lazy loading", geralmente devem separar a aplicação por contexto de uso, mas pode ser flexibilizado como neste aplicação que apenas demonstra o conceito.
+
+**/Sass:** Todo o estilo da aplicacao fica neste repositório
