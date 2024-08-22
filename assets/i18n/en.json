@@ -1,0 +1,19 @@
+{
+  "words": {
+    "beginning": "Beginning",
+    "favorites": "Favorites",
+    "search": "Search for",
+    "loading": "Loading"
+  },
+  "sentences": {
+    "empty": {
+      "title": "Nothing found",
+      "subtitle": "Try performing a new search."
+    },
+    "empty-favorites": {
+      "title": "It looks like you don't have any favorites yet.",
+      "subtitle": "Go back to the home page and choose the best ones for you."
+    },
+    "back-to-beginning": "Back to Beginning"
+  }
+}
