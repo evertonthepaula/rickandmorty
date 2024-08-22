@@ -56,8 +56,10 @@
   &-name {
     margin: 0;
     font-family: "Creepster", system-ui;
+    font-weight: 400;
     white-space: nowrap;
     text-overflow: ellipsis;
+    overflow: hidden;
   }
 
   &-type {

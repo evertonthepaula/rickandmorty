@@ -14,6 +14,8 @@
     [title]=" 'sentences.empty-favorites.title' | translate"
     [subtitle]="'sentences.empty-favorites.title' | translate">
 
-    <button class="btn">{{ 'sentences.back-to-beginning' | translate }}</button>
+    <button class="btn" [routerLink]="['../']">
+      {{ 'sentences.back-to-beginning' | translate }}
+    </button>
   </app-empty-content>
 </ng-template>
