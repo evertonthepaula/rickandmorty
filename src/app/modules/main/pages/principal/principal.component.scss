@@ -10,11 +10,7 @@
   grid-gap: 24px;
 }
 
-.dots {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80px;
-  color: var(--color-brand);
-  font-size: 3rem;
+app-empty-content {
+  margin-top: 32px;
+  display: block;
 }

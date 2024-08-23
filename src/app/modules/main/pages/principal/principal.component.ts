@@ -9,7 +9,7 @@ import { AddCharactersList, ClearCharactersList } from '../../../../core/store/c
 import { CharactersState } from '../../../../core/store/characters/characters.state';
 import { ToogleFavorite } from '../../../../core/store/favorites/favorites.actions';
 import { FormControl } from '@angular/forms';
-import { CharacterResponseInterface } from '../../../../core/interfaces/response/character-response.iterface';
+import { CharacterResponse } from '../../../../core/interfaces/response/character-response.iterface';
 
 
 @Component({
@@ -86,7 +86,7 @@ export class PrincipalComponent implements OnInit, AfterViewInit {
     return this.characterHttpService
       .get(this.page, name)
       .pipe(
-        map((result: CharacterResponseInterface) => {
+        map((result: CharacterResponse) => {
           result.info.next && this.page++;
           return this.characterDataService.basics(result)
         }),

@@ -2,8 +2,8 @@
   <h1>{{ 'words.beginning' | translate }}</h1>
 
   <div>
-    <label for> {{ 'words.search' | translate }}</label>
-    <input type="search" [formControl]="formControlSearch">
+    <label for="searchInput"> {{ 'words.search' | translate }}</label>
+    <input id="searchInput" type="search" [formControl]="formControlSearch">
   </div>
 </header>
 
@@ -16,15 +16,16 @@
   </section>
 </ng-container>
 
-<div *ngIf="isLoading" class="dots">
-  {{ 'words.loading' | translate }}
+<app-empty-content
+  *ngIf="isLoading"
+  [title]="'words.loading' | translate">
   <app-loader-dots></app-loader-dots>
-</div>
+</app-empty-content>
 
 <ng-template #empty>
   <app-empty-content
     *ngIf="!isLoading"
     [title]=" 'sentences.empty.title' | translate"
-    [subtitle]="'sentences.empty.title' | translate">
+    [subtitle]="'sentences.empty.subtitle' | translate">
   </app-empty-content>
 </ng-template>

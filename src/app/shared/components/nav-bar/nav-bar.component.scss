@@ -7,6 +7,12 @@
   padding: 0 24px;
   background-color: var(--color-black);
   border-bottom: 1px solid var(--color-smoke);
+
+  @media (max-width: 660px) {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 24px;
+  }
 }
 
 .total {
@@ -29,4 +35,23 @@ fa-icon {
 
 .total {
   margin-left: 6px;
+}
+
+@media (max-width: 660px) {
+  .logo {
+    width: 100%;
+  }
+
+  .menu {
+    width: 100%;
+
+    .btn {
+      flex: 1 1 50%;
+    }
+  }
+
+  .btn-group {
+    padding-bottom: 16px;
+  }
+
 }
