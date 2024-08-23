@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CharacterResponseInterface } from '../../../interfaces/response/character-response.iterface';
+import { CharacterResponse } from '../../../interfaces/response/character-response.iterface';
 import { CharacterBasics } from '../../../interfaces/character.interface';
 
 @Injectable({
@@ -12,7 +12,7 @@ export class CharacterDataService {
    * @param data - The Character Response Interface
    *
    */
-  basics(response: CharacterResponseInterface): CharacterBasics[] {
+  basics(response: CharacterResponse): CharacterBasics[] {
     return response.results.map(({ id, name, species, type, image }) => ({ id, name, species, type, image }))
   }
 
