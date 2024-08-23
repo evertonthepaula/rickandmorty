@@ -3,16 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './shared/pages/page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'principal', pathMatch: 'full' },
   {
-    path: 'principal',
+    path: '',
+    pathMatch: 'full',
     loadChildren: () => import('src/app/modules/main/main.module').then(m => m.MainModule)
   },
   {
     path: 'favoritos',
     loadChildren: () => import('src/app/modules/favorite/favorite.module').then(m => m.FavoriteModule)
   },
-  { path: '**', component: PageNotFoundComponent }
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
